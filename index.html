@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Valorant Bearer Token in Electron</title>
+  </head>
+  <body>
+    <h1>Example of getting Valorant Bearer Token directly in Electron</h1>
+    <button id="loginBtn">Riot Games Website Login</button>
+    <hr />
+    <h2>Result:</h2>
+    <pre id="output">Waiting to log in..</pre>
+
+    <script>
+      const loginBtn = document.getElementById('loginBtn');
+      const output = document.getElementById('output');
+
+      loginBtn.addEventListener('click', async() => {
+        output.innerText = 'Login window opened'
+        const result = await window.electronAPI.loginToRiot();
+
+        if (result.success) {
+          output.innerText = 'Logged in successfully! \nBearer Access Token: \n' + result.token + '\nToken ID: \n' + result.idToken + '\nExpires in: ' + result.expiresIn;
+        } else {
+          output.innerText = "Login error: " + result.error;
+        }
+      });
+    </script>
+  </body>
+</html>

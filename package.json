@@ -1,0 +1,13 @@
+{
+  "name": "valorant-token-electron",
+  "version": "1.0.0",
+  "description": "Get Valorant Bearer Token from official Riot Website",
+  "author": "Pablisiak",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^45.5.0"
+  }
+}
